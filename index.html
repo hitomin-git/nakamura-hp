@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中村鍼灸整体院｜身体の声に、そっと寄り添う</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #EDEAE0;
+      --bg-soft: #F5F3EA;
+      --card: #FBFAF4;
+      --ink: #23302B;
+      --ink-soft: #56635C;
+      --ink-faint: #8A9189;
+      --vermillion: #B23A2E;
+      --vermillion-soft: #C97361;
+      --indigo: #2B4257;
+      --gold: #A98753;
+      --line-color: #d9d5c6;
+      --line: rgba(35, 48, 43, 0.14);
+      --line-green: #2E7D5B;
+      --serif: "Shippori Mincho", serif;
+      --sans: "Zen Kaku Gothic New", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(35, 48, 43, 0.03) 0, transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(178, 58, 46, 0.025) 0, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--serif);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.06em;
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      color: var(--vermillion);
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    /* ---------- header ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(237, 234, 224, 0.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    nav.main-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: nowrap;
+    }
+
+    nav.main-nav>a,
+    .nav-dropdown>.dd-toggle {
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: var(--ink-soft);
+      position: relative;
+      padding: 4px 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      white-space: nowrap;
+    }
+
+    nav.main-nav>a::after,
+    .nav-dropdown>.dd-toggle::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 1px;
+      background: var(--vermillion);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+
+    nav.main-nav>a:hover::after,
+    .nav-dropdown:hover>.dd-toggle::after {
+      transform: scaleX(1);
+    }
+
+    .dd-toggle .caret {
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: rotate(45deg);
+      margin-top: -3px;
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .dd-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: var(--card);
+      border: 1px solid var(--line);
+      min-width: 250px;
+      padding: 10px 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease;
+      box-shadow: 0 18px 40px rgba(35, 48, 43, 0.12);
+    }
+
+    .nav-dropdown:hover .dd-menu,
+    .nav-dropdown.open .dd-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dd-menu a {
+      display: block;
+      padding: 12px 22px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .dd-menu a:hover {
+      color: var(--vermillion);
+      background: var(--bg-soft);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .header-line-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #06C755;
+      color: #fff;
+      border: 1px solid #06C755;
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      padding: 11px 20px;
+      white-space: nowrap;
+      transition: filter .25s ease;
+    }
+
+    .header-line-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .header-line-btn:hover {
+      filter: brightness(1.08);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 1.4px;
+      background: var(--ink);
+    }
+
+    /* ---------- hero / carousel ---------- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+    }
+
+    .hero-track {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 1.1s cubic-bezier(.65, 0, .35, 1);
+    }
+
+    .slide {
+      position: relative;
+      width: 33.3334%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .slide svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide-ph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-ph-label {
+      font-family: var(--serif);
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: rgba(245, 243, 234, 0.55);
+      border: 1px solid rgba(245, 243, 234, 0.3);
+      padding: 10px 22px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 26, 23, 0.45) 0%, rgba(20, 26, 23, 0.2) 40%, rgba(20, 26, 23, 0.65) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      z-index: 2;
+    }
+
+    .hero-overlay .eyebrow {
+      color: var(--vermillion-soft);
+    }
+
+    .hero-overlay h1 {
+      color: #F5F3EA;
+      font-size: clamp(30px, 4.6vw, 52px);
+      line-height: 1.6;
+      margin-bottom: 26px;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-overlay h1 em {
+      font-style: normal;
+      color: var(--vermillion-soft);
+      border-bottom: 1px solid rgba(201, 115, 97, 0.6);
+      padding-bottom: 2px;
+    }
+
+    .hero-overlay p {
+      color: rgba(245, 243, 234, 0.85);
+      font-size: 15px;
+      max-width: 460px;
+      margin-bottom: 34px;
+    }
+
+    .btn-primary {
+      background: var(--vermillion);
+      color: #F5F3EA;
+      padding: 15px 34px;
+      font-size: 13.5px;
+      letter-spacing: 0.14em;
+      transition: background .3s ease, transform .3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--vermillion);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      transform: translateY(-2px);
+    }
+
+    .slide-dots {
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .slide-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 243, 234, 0.8);
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      transition: background .3s ease;
+    }
+
+    .slide-dots button.active {
+      background: rgba(245, 243, 234, 0.9);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 34px;
+      right: 38px;
+      z-index: 3;
+      writing-mode: vertical-rl;
+      color: rgba(245, 243, 234, 0.65);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scroll-hint::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 38px;
+      background: rgba(245, 243, 234, 0.5);
+    }
+
+    /* ---------- section shell ---------- */
+    .section {
+      padding: 110px 0;
+      position: relative;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(26px, 3vw, 34px);
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+
+    .section-alt {
+      background: var(--bg-soft);
+    }
+
+    .subsection-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 44px;
+    }
+
+    .subsection-label .idx {
+      font-family: var(--serif);
+      color: var(--vermillion);
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+
+    .subsection-label .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .fade-up.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- concept feature cards ---------- */
+    /* ---------- concept (about) ---------- */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .concept-left h3 {
+      font-size: clamp(26px, 2.9vw, 38px);
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+
+    .concept-photo {
+      aspect-ratio: 4/5;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .concept-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .concept-lead {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      margin-bottom: 40px;
+    }
+
+    .concept-points {
+      border-top: 1px solid var(--line);
+    }
+
+    .concept-points li {
+      display: flex;
+      gap: 22px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .concept-points .num {
+      font-family: var(--serif);
+      font-size: 13px;
+      color: var(--vermillion);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .concept-points h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .concept-points p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- greeting ---------- */
+    .greeting-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .portrait {
+      aspect-ratio: 4/5;
+      border: 1px solid var(--line);
+      background: linear-gradient(155deg, #2B4257 0%, #23302B 60%, #1a2420 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portrait svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .portrait img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .portrait-cap {
+      margin-top: 18px;
+      font-size: 12.5px;
+      color: var(--ink-faint);
+      letter-spacing: 0.08em;
+    }
+
+    .greeting-copy p {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      margin-bottom: 20px;
+    }
+
+    .signature-block {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .signature-block .name {
+      font-family: var(--serif);
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+
+    .signature-block .cred {
+      font-size: 12px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+    }
+
+    /* ---------- pricing / insurance ---------- */
+    .symptom-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 64px;
+    }
+
+    .symptom-chips span {
+      border: 1px solid var(--line);
+      padding: 9px 18px;
+      font-size: 13px;
+      line-height: 1.4;
+      color: var(--ink-soft);
+      background: var(--card);
+    }
+
+    .price-block {
+      margin-bottom: 56px;
+    }
+
+    .price-block-title {
+      font-size: 17px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .price-block-title span {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--ink-faint);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .price-table th {
+      text-align: left;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--ink-faint);
+      padding: 0 0 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .price-table td {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14.5px;
+    }
+
+    .price-table td.name {
+      font-family: var(--serif);
+      font-size: 16px;
+    }
+
+    .price-table td.desc {
+      color: var(--ink-soft);
+      font-size: 13px;
+    }
+
+    .price-table td.price {
+      text-align: right;
+      font-family: var(--serif);
+      font-size: 17px;
+      color: var(--vermillion);
+      white-space: nowrap;
+    }
+
+    .ticket-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+    }
+
+    .ticket-table th {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: var(--card);
+      padding: 16px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .ticket-table th:first-child {
+      border-left: none;
+    }
+
+    .ticket-table td {
+      padding: 18px 20px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    .ticket-table td:first-child {
+      border-left: none;
+    }
+
+    .ticket-table td.times {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink-soft);
+      background: transparent;
+      border-left: none;
+    }
+
+    .ticket-table .total {
+      display: block;
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--vermillion);
+    }
+
+    .ticket-table .per {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-faint);
+      margin-top: 4px;
+    }
+
+    .insurance-block {
+      margin-bottom: 52px;
+    }
+
+    .insurance-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .insurance-block h4 {
+      font-size: 17px;
+      margin-bottom: 16px;
+    }
+
+    .insurance-lead {
+      font-size: 13.5px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+      max-width: 640px;
+    }
+
+    .disease-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .disease-card {
+      background: var(--card);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background .3s ease;
+    }
+
+    .disease-card:hover {
+      background: var(--bg-soft);
+    }
+
+    .disease-card .d-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+      color: var(--vermillion);
+      transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), background .3s ease;
+    }
+
+    .disease-card .d-icon svg {
+      width: 21px;
+      height: 21px;
+    }
+
+    .disease-card:nth-child(2) .d-icon {
+      color: var(--indigo);
+    }
+
+    .disease-card:nth-child(3) .d-icon {
+      color: var(--gold);
+    }
+
+    .disease-card:nth-child(5) .d-icon {
+      color: var(--indigo);
+    }
+
+    .disease-card:nth-child(6) .d-icon {
+      color: var(--gold);
+    }
+
+    .disease-card:hover .d-icon {
+      transform: rotate(-8deg) scale(1.1);
+      background: var(--card);
+    }
+
+    .disease-card .d-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .disease-card .d-desc {
+      font-size: 12px;
+      color: var(--ink-faint);
+      line-height: 1.7;
+    }
+
+    .insurance-flow {
+      border-top: 1px solid var(--line);
+    }
+
+    .insurance-flow li {
+      display: flex;
+      gap: 22px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .insurance-flow .f-num {
+      font-family: var(--serif);
+      font-size: 13px;
+      color: var(--vermillion);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .insurance-flow h5 {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .insurance-flow p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      max-width: 640px;
+      margin-bottom: 10px;
+    }
+
+    .insurance-flow p:last-child {
+      margin-bottom: 0;
+    }
+
+    .insurance-note-text {
+      font-size: 13px;
+      color: var(--ink-faint);
+      max-width: 680px;
+      margin-top: 24px;
+      line-height: 1.9;
+    }
+
+    .insurance-cta {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--vermillion);
+      margin-top: 20px;
+    }
+
+    .insurance-cta-btn {
+      display: inline-flex;
+      margin-top: 16px;
+    }
+
+    /* ---------- voices ---------- */
+    .voice-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .voice-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 38px 30px;
+      position: relative;
+    }
+
+    .voice-card .quote-mark {
+      font-family: var(--serif);
+      font-size: 44px;
+      color: var(--vermillion-soft);
+      line-height: 1;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+
+    .voice-card p.body-text {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 24px;
+    }
+
+    .voice-card .who {
+      font-size: 12.5px;
+      letter-spacing: 0.08em;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    /* ---------- first visit flow ---------- */
+    .flow-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .flow-step {
+      padding: 0 26px 0 0;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      right: -2px;
+      width: 100%;
+      height: 1px;
+      background: var(--line);
+      display: none;
+    }
+
+    @media(min-width:769px) {
+      .flow-step:not(:last-child)::after {
+        display: block;
+      }
+    }
+
+    .flow-step .fnum {
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--vermillion);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+      background: var(--bg);
+      display: inline-block;
+      padding-right: 10px;
+    }
+
+    .flow-step h3 {
+      font-size: 15.5px;
+      margin-bottom: 10px;
+    }
+
+    .flow-step p {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------- access ---------- */
+
+    .qa-list {
+      border-top: 1px solid var(--line);
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 4px;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 16px;
+      gap: 20px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary .q-tag {
+      color: var(--vermillion);
+      font-family: var(--serif);
+      font-size: 14px;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+
+    summary .toggle-icon {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    summary .toggle-icon::before,
+    summary .toggle-icon::after {
+      content: "";
+      position: absolute;
+      background: var(--ink);
+      left: 50%;
+      top: 50%;
+    }
+
+    summary .toggle-icon::before {
+      width: 8px;
+      height: 1px;
+      transform: translate(-50%, -50%);
+    }
+
+    summary .toggle-icon::after {
+      width: 1px;
+      height: 8px;
+      transform: translate(-50%, -50%);
+      transition: opacity .2s ease;
+    }
+
+    details[open] summary .toggle-icon::after {
+      opacity: 0;
+    }
+
+    .qa-answer {
+      padding: 0 4px 28px 46px;
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      max-width: 640px;
+    }
+
+    /* ---------- footer ---------- */
+    footer {
+      background: var(--bg-soft);
+      border-top: 1px solid var(--line);
+      padding: 70px 0 40px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 19px;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 2;
+    }
+
+    footer h4 {
+      font-size: 12.5px;
+      letter-spacing: 0.16em;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    footer ul a {
+      font-size: 13px;
+      color: var(--ink-soft);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    footer ul a:hover {
+      color: var(--vermillion);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 48px;
+    }
+
+    .footer-tagline {
+      font-family: var(--serif);
+      font-size: 14px;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-info {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 52px;
+    }
+
+    .footer-map {
+      border: 1px solid var(--line);
+      overflow: hidden;
+      aspect-ratio: 5/3;
+    }
+
+    .footer-map svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .footer-hours {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    .footer-hours th {
+      font-weight: 500;
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      padding: 0 0 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .footer-hours td {
+      padding: 9px 0 0;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 13px;
+    }
+
+    .footer-hours td.on {
+      color: var(--vermillion);
+    }
+
+    .footer-hours td.off {
+      color: var(--ink-faint);
+    }
+
+    .footer-hours-note {
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      line-height: 1.8;
+    }
+
+    .footer-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-menu a {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .footer-menu a:hover {
+      color: var(--vermillion);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 26px;
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ---------- floating hours / reservation widget ---------- */
+    .float-widget {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+    }
+
+    .float-panel {
+      width: 300px;
+      background: var(--ink);
+      color: #F5F3EA;
+      border: 1px solid rgba(245, 243, 234, 0.14);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      padding: 26px 26px 22px;
+      transform: translateY(16px) scale(0.97);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .float-widget.open .float-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .float-panel h4 {
+      font-family: var(--serif);
+      font-size: 15.5px;
+      color: #F5F3EA;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .float-panel h4::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--vermillion-soft);
+      display: inline-block;
+    }
+
+    .hours-mini {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11.5px;
+      margin-bottom: 14px;
+    }
+
+    .hours-mini th {
+      font-weight: 500;
+      color: rgba(245, 243, 234, 0.55);
+      padding: 0 0 8px;
+      border-bottom: 1px solid rgba(245, 243, 234, 0.16);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    .hours-mini td {
+      padding: 9px 0 0;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 12.5px;
+    }
+
+    .hours-mini td.on {
+      color: var(--vermillion-soft);
+    }
+
+    .hours-mini td.off {
+      color: rgba(245, 243, 234, 0.35);
+    }
+
+    .hours-legend {
+      font-size: 11px;
+      color: rgba(245, 243, 234, 0.55);
+      line-height: 1.85;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(245, 243, 234, 0.14);
+      padding-bottom: 18px;
+    }
+
+    .line-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #06C755;
+      color: #fff;
+      padding: 13px 0;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      transition: filter .25s ease;
+    }
+
+    .line-btn:hover {
+      filter: brightness(1.08);
+    }
+
+    .line-btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .tel-line {
+      font-size: 11.5px;
+      color: rgba(245, 243, 234, 0.6);
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .float-toggle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--vermillion);
+      color: #F5F3EA;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 14px 32px rgba(178, 58, 46, 0.35);
+      font-family: var(--serif);
+      font-size: 10.5px;
+      letter-spacing: 0.05em;
+      transition: transform .3s ease;
+      position: relative;
+    }
+
+    .float-toggle:hover {
+      transform: scale(1.06);
+    }
+
+    .float-toggle .clock-icon {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 2px;
+    }
+
+    .float-widget.open .float-toggle .label-open {
+      display: block;
+    }
+
+    .float-widget.open .float-toggle .label-closed {
+      display: none;
+    }
+
+    .float-toggle .label-open {
+      display: none;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width:880px) {
+      nav.main-nav {
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--bg);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 50px 32px;
+        gap: 8px;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform .4s ease;
+      }
+
+      nav.main-nav.open {
+        transform: translateX(0);
+      }
+
+      nav.main-nav>a {
+        font-size: 16px;
+        padding: 14px 0;
+      }
+
+      .nav-dropdown {
+        width: 100%;
+      }
+
+      .dd-toggle {
+        font-size: 16px;
+        padding: 14px 0;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .dd-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        border-left: 1px solid var(--line);
+        margin-left: 6px;
+        padding: 0 0 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+      }
+
+      .nav-dropdown.open .dd-menu {
+        max-height: 200px;
+      }
+
+      .dd-menu a {
+        padding: 10px 18px;
+        font-size: 14.5px;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .header-cta {
+        display: none;
+      }
+
+      .concept-grid,
+      .greeting-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .voice-row {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-row {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 36px;
+      }
+
+      .footer-info {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .ticket-table th,
+      .ticket-table td {
+        padding: 12px 8px;
+        font-size: 13px;
+      }
+
+      .ticket-table .total {
+        font-size: 15px;
+      }
+
+      .disease-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .float-panel {
+        width: 88vw;
+        max-width: 320px;
+      }
+
+      .scroll-hint {
+        display: none;
+      }
+    }
+
+    @media (max-width:480px) {
+      .flow-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="#top" class="logo"><img src="Logo.png" alt="中村鍼灸整体院" class="logo-img"></a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#top">トップページ</a>
+        <div class="nav-dropdown" id="aboutDropdown">
+          <button class="dd-toggle" id="ddToggle">当院について <span class="caret"></span></button>
+          <div class="dd-menu">
+            <a href="#concept">中村鍼灸整体院だからできること</a>
+            <a href="#greeting">院長からのご挨拶</a>
+          </div>
+        </div>
+        <a href="#pricing">施術料金・保険</a>
+        <a href="#voice">お客様の声</a>
+        <a href="#first-visit">初めての方へ</a>
+        <a href="#footer">アクセス</a>
+      </nav>
+      <div class="header-cta">
+        <a href="#" class="header-line-btn">
+          <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+          </svg>
+          <span>24時間LINE予約</span>
+        </a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= HERO / TOP (3-photo auto carousel) ================= -->
+    <section class="hero">
+      <div class="hero-track" id="heroTrack">
+        <div class="slide slide-ph" data-slide="0" style="background:#2B4257;">
+          <span class="slide-ph-label">PHOTO 01</span>
+        </div>
+        <div class="slide slide-ph" data-slide="1" style="background:#B23A2E;">
+          <span class="slide-ph-label">PHOTO 02</span>
+        </div>
+        <div class="slide slide-ph" data-slide="2" style="background:#A98753;">
+          <span class="slide-ph-label">PHOTO 03</span>
+        </div>
+      </div>
+      <div class="hero-overlay">
+        <span class="eyebrow">Nakamura Acupuncture &amp; Seitai Clinic</span>
+        <h1>身体の声に、<br>そっと寄り添う<em>一鍼</em>を。</h1>
+        <p>肩こり、腰痛、不眠、冷え——頑張り続けるあなたの身体に、鍼灸と整体で本来の力を取り戻すお手伝いを。</p>
+        <a href="#first-visit" class="btn-primary">初めての方へ →</a>
+      </div>
+      <div class="slide-dots" id="slideDots">
+        <button class="active" data-dot="0"></button>
+        <button data-dot="1"></button>
+        <button data-dot="2"></button>
+      </div>
+      <div class="scroll-hint">SCROLL</div>
+    </section>
+
+    <!-- ================= 当院について ================= -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <span class="eyebrow">About Us</span>
+          <h2>当院について</h2>
+        </div>
+
+        <div id="concept">
+          <div class="subsection-label fade-up"><span class="idx">01 — Concept</span><span class="rule"></span></div>
+          <div class="concept-grid fade-up" style="margin-bottom:96px;">
+            <div class="concept-left">
+              <h3>中村鍼灸整体院<br>だからできること</h3>
+              <div class="concept-photo">
+                <img src="picture/room.webp" alt="中村鍼灸整体院 院内">
+              </div>
+            </div>
+            <div class="concept-right">
+              <p class="concept-lead">
+                その不調は、日々を頑張ってきた証です。中村鍼灸整体院は、鍼灸と整体の技術で身体と丁寧に向き合い、痛みの奥にある原因を見極めながら、本来もつ自然治癒力を引き出す施術をお届けします。初めての方にも安心していただけるよう、まずはお話をじっくり伺うことから始めます。
+              </p>
+              <ul class="concept-points">
+                <li>
+                  <span class="num">01</span>
+                  <div>
+                    <h4>丁寧なカウンセリング</h4>
+                    <p>症状だけでなく、生活習慣やお身体の癖まで伺い、根本原因を一緒に見つけていきます。</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="num">02</span>
+                  <div>
+                    <h4>経験に基づく確かな技術</h4>
+                    <p>鍼灸と整体、双方の知見を組み合わせ、お一人おひとりに合わせた施術を組み立てます。</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="num">03</span>
+                  <div>
+                    <h4>通いやすい立地と時間</h4>
+                    <p>お仕事帰りや家事の合間にも立ち寄れる、開かれた鍼灸整体院を目指しています。</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="greeting">
+          <div class="subsection-label fade-up"><span class="idx">02 — Greeting</span><span class="rule"></span></div>
+          <h3 style="font-size:22px; margin-bottom:36px;" class="fade-up">院長からのご挨拶</h3>
+          <div class="greeting-grid fade-up">
+            <div>
+              <div class="portrait">
+                <img src="picture/nakamura_face.jpg" alt="院長 中村">
+              </div>
+              <p class="portrait-cap">院長　中村 ○○</p>
+            </div>
+            <div class="greeting-copy">
+              <p>このたびは中村鍼灸整体院のホームページをご覧いただき、ありがとうございます。院長の中村と申します。</p>
+              <p>
+                1999年、大阪生まれ。国家資格である、はり師・きゅう師を取得後、新卒で大阪の治療院に勤務いたしました。海外での解剖研修に参加し、「人体構造」の基礎から学び直しながら臨床経験を積んだのち、より高い専門性と自身の価値向上を求め、4年前に拠点を東京へ移しました。
+              </p>
+              <p>
+                東京では港区にある美容鍼灸整体院に勤務し、仕事のパフォーマンス向上や健康への投資意識が高い方々を中心に、数多くの施術経験を重ねてまいりました。現在は東京を拠点としながら月に1度は札幌にも赴き、美容やコンディショニングへの感度が高い方々への施術を継続しております。
+              </p>
+              <p>これまでの経験を活かし、2027年、新たに鍼灸整体院をオープンする予定です。仕事も趣味も楽しめる毎日を送っていただけるよう、地域の皆様に寄り添う鍼灸整体院を目指してまいります。どうぞお気軽にご相談ください。
+              </p>
+              <div class="signature-block">
+                <div class="name">中村 ○○</div>
+                <div class="cred">はり師 第000000号 ／ きゅう師 第000000号</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 施術料金・保険 ================= -->
+    <section class="section section-alt" id="pricing">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <span class="eyebrow">Price &amp; Insurance</span>
+          <h2>施術料金・保険</h2>
+          <p>こんなお悩みに対応しています。まずはお気軽にご相談ください。</p>
+        </div>
+
+        <div class="symptom-chips fade-up">
+          <span>肩こり・首のこり</span>
+          <span>腰痛・ぎっくり腰</span>
+          <span>自律神経の乱れ・不眠</span>
+          <span>冷え性・むくみ</span>
+          <span>スポーツ障害・関節の痛み</span>
+        </div>
+
+        <div class="price-block fade-up">
+          <h3 class="price-block-title">施術料金<span>（90分）</span></h3>
+          <table class="price-table">
+            <tr>
+              <th>メニュー</th>
+              <th style="text-align:right;">料金（税込）</th>
+            </tr>
+            <tr>
+              <td class="name">鍼灸整体</td>
+              <td class="price">¥18,000</td>
+            </tr>
+            <tr>
+              <td class="name">鍼灸整体＋美容鍼</td>
+              <td class="price">¥21,000</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="price-block fade-up">
+          <h3 class="price-block-title">回数券料金</h3>
+          <table class="ticket-table">
+            <tr>
+              <th></th>
+              <th>鍼灸整体</th>
+              <th>鍼灸整体＋美容鍼</th>
+            </tr>
+            <tr>
+              <td class="times">4回</td>
+              <td><span class="total">¥68,000</span><span class="per">（¥17,000／回）</span></td>
+              <td><span class="total">¥76,000</span><span class="per">（¥19,000／回）</span></td>
+            </tr>
+            <tr>
+              <td class="times">8回</td>
+              <td><span class="total">¥120,000</span><span class="per">（¥15,000／回）</span></td>
+              <td><span class="total">¥144,000</span><span class="per">（¥18,000／回）</span></td>
+            </tr>
+            <tr>
+              <td class="times">12回</td>
+              <td><span class="total">¥168,000</span><span class="per">（¥14,000／回）</span></td>
+              <td><span class="total">¥192,000</span><span class="per">（¥16,000／回）</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="insurance-block fade-up">
+          <h4>鍼灸施術で保険適用される6疾患</h4>
+          <p class="insurance-lead">下記の6疾患は医師の同意により健康保険が適用となります。それぞれの詳しい症状をご確認ください。</p>
+          <div class="disease-grid">
+            <div class="disease-card">
+              <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+                </svg></div>
+              <span class="d-name">神経痛</span>
+              <span class="d-desc">三叉神経痛、肋間神経痛、坐骨神経痛、その他の神経痛</span>
+            </div>
+            <div class="disease-card">
+              <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="5" r="2.3" />
+                  <path d="M12 7.5v6M12 9.5l5 3M12 13.5l-3 7M12 13.5l3 7" />
+                </svg></div>
+              <span class="d-name">頸腕症候群</span>
+              <span class="d-desc">首から腕にかけての疾患、首の痛みなど</span>
+            </div>
+            <div class="disease-card">
+              <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M7.5 13V5.2a1.4 1.4 0 0 1 2.8 0V11M10.3 11V4a1.4 1.4 0 0 1 2.8 0v7M13.1 11.3V5.2a1.4 1.4 0 0 1 2.8 0V12M15.9 12V9.2a1.4 1.4 0 0 1 2.8 0v5.8c0 3.3-2.3 5.8-5.6 5.8h-1.7c-1.8 0-2.8-.9-3.7-2.3L5.6 16c-.6-.8-.4-1.6.3-2.1.6-.4 1.4-.2 1.9.4l.9 1.1" />
+                </svg></div>
+              <span class="d-name">リウマチ</span>
+              <span class="d-desc">関節リウマチなど</span>
+            </div>
+            <div class="disease-card">
+              <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M12 2.5v3.2M9 8c0 1.8 3 1.8 3 3.5S9 13.3 9 15.1s3 1.8 3 3.5M15 8c0 1.8-3 1.8-3 3.5s3 1.7 3 3.5-3 1.8-3 3.5M12 21.5v-3.2" />
+                </svg></div>
+              <span class="d-name">腰痛症</span>
+              <span class="d-desc">ぎっくり腰、腰の痛みなど</span>
+            </div>
+            <div class="disease-card">
+              <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="6" r="2.3" />
+                  <path d="M9 8.3v6l4-7.3 5 3M9 14.3l-2 7M9 14.3l3 7" />
+                </svg></div>
+              <span class="d-name">五十肩</span>
+              <span class="d-desc">いわゆる四十肩などの同じような症状も含む</span>
+            </div>
+            <div class="disease-card">
+              <div class="d-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="5.5" r="2.3" />
+                  <path d="M6.5 11a5.5 5.5 0 0 1 11 0v1.5a5.5 5.5 0 0 1-11 0z" />
+                </svg></div>
+              <span class="d-name">頚椎捻挫後遺症等</span>
+              <span class="d-desc">「ムチウチ」の後遺症など</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insurance-block fade-up">
+          <h4>保険適用までの流れ</h4>
+          <ol class="insurance-flow">
+            <li>
+              <span class="f-num">01</span>
+              <div>
+                <h5>当院での説明・同意書のお渡し</h5>
+                <p>症状が保険適応疾患に当てはまると思われる方は、まず当院にご相談ください。症状の確認、保険適応についての注意事項をご説明し、医師にご記入いただく同意書をお渡しいたします。</p>
+                <p>医療併給は認められません。同一部位・同一疾患にて複数の院から保険請求がなされた場合、保険が認められなくなります。</p>
+              </div>
+            </li>
+            <li>
+              <span class="f-num">02</span>
+              <div>
+                <h5>医療機関での受診・同意書の発行</h5>
+                <p>医療機関で医師の診察を受け、当院が発行した同意書にご記入をお願いします。同意書の発行は、担当医師のご指示により、一定期間時間を要する場合もあります。</p>
+              </div>
+            </li>
+            <li>
+              <span class="f-num">03</span>
+              <div>
+                <h5>当院での保険適用施術</h5>
+                <p>
+                  医療機関で発行していただいた同意書を、当院にご持参ください。書面に問題なければ、同意日の翌日より保険が適応となります。一回の同意書で、6カ月の同意期間が認められます。継続する場合には、再度医師の同意が必要です。
+                </p>
+              </div>
+            </li>
+          </ol>
+          <p class="insurance-note-text">
+            当院は岐阜県鍼灸師会に入会しており、協同組合岐阜県鍼師灸師マッサージ師会様より保険請求をさせていただいております。交通事故後の自賠責保険（自動車損害賠償責任保険）が適用できます。自己負担0円です。損害保険会社様に「はり・きゅう」の施術を承認していただく必要があります。
+          </p>
+          <p class="insurance-cta">保険適用のご質問もお気軽に！</p>
+          <a href="#" class="header-line-btn insurance-cta-btn">
+            <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+            </svg>
+            <span>ご相談・お問い合わせ</span>
+          </a>
+        </div>
+
+        <div class="insurance-block fade-up">
+          <h4>【医療費控除】について</h4>
+          <p class="insurance-lead">当院は保健所へ正式に開設届を提出している鍼灸院となります。そのため症状改善を目的とした鍼灸施術に関しては、医療費控除の対象となる場合がございます。</p>
+          <ol class="insurance-flow">
+            <li>
+              <span class="f-num">01</span>
+              <div>
+                <h5>医療費控除の対象になる可能性がある</h5>
+                <p>肩こり・腰痛・頭痛・自律神経症状など、治療目的の施術は医療費控除の対象として扱われる場合があります。</p>
+              </div>
+            </li>
+            <li>
+              <span class="f-num">02</span>
+              <div>
+                <h5>確定申告時に活用できる</h5>
+                <p>領収書を保管いただくことで、確定申告時の医療費控除申請にご利用いただけます。</p>
+              </div>
+            </li>
+            <li>
+              <span class="f-num">03</span>
+              <div>
+                <h5>実質的なご負担軽減に繋がる場合がある</h5>
+                <p>医療費控除を活用することで、税負担の軽減に繋がるケースもございます。</p>
+              </div>
+            </li>
+          </ol>
+          <p class="insurance-note-text">※ 美容目的の施術は対象外となる場合があります。<br>※ 詳細は税務署または顧問税理士様へご確認ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= お客様の声 ================= -->
+    <section class="section" id="voice">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <span class="eyebrow">Customer's Voice</span>
+          <h2>お客様の声</h2>
+          <p>実際に通っていただいている患者様からいただいたお声の一部をご紹介します。</p>
+        </div>
+        <div class="voice-row fade-up">
+          <div class="voice-card">
+            <span class="quote-mark">”</span>
+            <p class="body-text">長年悩んでいた肩こりが、通ううちにずいぶん楽になりました。丁寧な説明で毎回安心して施術を受けられます。</p>
+            <div class="who">40代・女性</div>
+          </div>
+          <div class="voice-card">
+            <span class="quote-mark">”</span>
+            <p class="body-text">歩くのもつらかった腰痛が嘘のようです。もっと早く来ればよかったと思っています。</p>
+            <div class="who">60代・男性</div>
+          </div>
+          <div class="voice-card">
+            <span class="quote-mark">”</span>
+            <p class="body-text">鍼が初めてで不安でしたが、痛みはほとんどなく、施術後は身体が軽くなりました。</p>
+            <div class="who">30代・女性</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 初めての方へ ================= -->
+    <section class="section section-alt" id="first-visit">
+      <div class="wrap">
+        <div class="section-head fade-up">
+          <span class="eyebrow">For First-time Visitors</span>
+          <h2>初めての方へ</h2>
+          <p>ご来院からお会計までの流れと、よくいただくご質問をまとめました。</p>
+        </div>
+
+        <div class="flow-row fade-up">
+          <div class="flow-step">
+            <span class="fnum">01</span>
+            <h3>ご予約</h3>
+            <p>LINE・お電話にてご希望の日時をご連絡ください。</p>
+          </div>
+          <div class="flow-step">
+            <span class="fnum">02</span>
+            <h3>問診・カウンセリング</h3>
+            <p>お身体の状態や生活習慣について、じっくりお話を伺います。</p>
+          </div>
+          <div class="flow-step">
+            <span class="fnum">03</span>
+            <h3>施術</h3>
+            <p>カウンセリングをもとに、鍼灸・整体を組み合わせて施術いたします。</p>
+          </div>
+          <div class="flow-step">
+            <span class="fnum">04</span>
+            <h3>アフターケア</h3>
+            <p>今後の通院ペースやセルフケアの方法をご案内し、次回のご予約を承ります。</p>
+          </div>
+        </div>
+
+        <div class="qa-list fade-up">
+          <details>
+            <summary><span><span class="q-tag">Q1</span>施術は痛いですか？</span><span class="toggle-icon"></span></summary>
+            <p class="qa-answer">
+              髪の毛ほどの細さの鍼を使用するため、痛みを感じる方は少ないです。ツボに鍼が入ると「ひびき」と呼ばれる独特の鈍い感覚が出ることがありますが、これは鍼がしっかり効いているサインです。</p>
+          </details>
+          <details>
+            <summary><span><span class="q-tag">Q2</span>どのような服装で伺えばいいですか？</span><span class="toggle-icon"></span>
+            </summary>
+            <p class="qa-answer">普段着のままお越しいただいて問題ありません。院内に着替えもご用意しておりますので、動きやすい服装がなくてもご安心ください。</p>
+          </details>
+          <details>
+            <summary><span><span class="q-tag">Q3</span>施術時間はどれくらいですか？</span><span class="toggle-icon"></span></summary>
+            <p class="qa-answer">コースにより異なりますが、初診の方はカウンセリングを含めて60〜90分ほどお時間をいただいております。</p>
+          </details>
+          <details>
+            <summary><span><span class="q-tag">Q4</span>使用する鍼は使い捨てですか？</span><span class="toggle-icon"></span></summary>
+            <p class="qa-answer">当院ではディスポーザブル（使い捨て）の鍼を使用しており、使い回しは一切ございません。感染症等のご心配なくお受けいただけます。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= アクセス ================= -->
+
+  </main>
+
+  <footer id="footer">
+    <div class="wrap">
+      <div class="footer-top fade-up">
+        <div class="footer-logo">中村鍼灸整体院</div>
+        <p class="footer-tagline">赤坂駅より徒歩5分！／最終受付 19:30まで</p>
+        <a href="#" class="header-line-btn">
+          <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+          </svg>
+          <span>24時間LINE予約</span>
+        </a>
+      </div>
+
+      <div class="footer-info fade-up">
+        <div class="footer-detail">
+          <table class="footer-hours">
+            <tr>
+              <th>月</th>
+              <th>火</th>
+              <th>水</th>
+              <th>木</th>
+              <th>金</th>
+              <th>土</th>
+              <th>日祝</th>
+            </tr>
+            <tr>
+              <td class="on">○</td>
+              <td class="off">×</td>
+              <td class="on">○</td>
+              <td class="on">○</td>
+              <td class="on">○</td>
+              <td class="on">△</td>
+              <td class="on">△</td>
+            </tr>
+          </table>
+          <p class="footer-hours-note">○ 9:00〜21:00　△ 9:00〜13:00　× 定休日</p>
+          <nav class="footer-menu">
+            <a href="#top">トップページ</a>
+            <a href="#about">当院について</a>
+            <a href="#pricing">施術料金・保険</a>
+            <a href="#voice">お客様の声</a>
+            <a href="#first-visit">初めての方へ</a>
+          </nav>
+        </div>
+        <div class="footer-map" aria-hidden="true">
+          <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="600" height="360" fill="#EDEAE0" />
+            <g stroke="#d9d5c6" stroke-width="8">
+              <line x1="0" y1="100" x2="600" y2="100" />
+              <line x1="0" y1="260" x2="600" y2="260" />
+              <line x1="160" y1="0" x2="160" y2="360" />
+              <line x1="420" y1="0" x2="420" y2="360" />
+            </g>
+            <g stroke="#c4bfab" stroke-width="3">
+              <line x1="0" y1="170" x2="600" y2="170" />
+              <line x1="300" y1="0" x2="300" y2="360" />
+            </g>
+            <circle cx="300" cy="170" r="12" fill="#B23A2E" />
+            <circle cx="300" cy="170" r="22" fill="none" stroke="#B23A2E" stroke-width="2" opacity="0.5" />
+            <text x="300" y="215" text-anchor="middle" font-family="Zen Kaku Gothic New, sans-serif" font-size="12"
+              fill="#56635C" letter-spacing="1">地図はGoogleマップ挿入予定</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 中村鍼灸整体院</span>
+        <span>はり師・きゅう師 国家資格保有</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING 診察時間・予約 WIDGET ================= -->
+  <div class="float-widget" id="floatWidget">
+    <div class="float-panel">
+      <h4>診察時間・予約</h4>
+      <table class="hours-mini">
+        <tr>
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th>土</th>
+          <th>日祝</th>
+        </tr>
+        <tr>
+          <td class="on">○</td>
+          <td class="off">×</td>
+          <td class="on">○</td>
+          <td class="on">○</td>
+          <td class="on">○</td>
+          <td class="on">△</td>
+          <td class="on">△</td>
+        </tr>
+      </table>
+      <div class="hours-legend">
+        ○ 9:00〜21:00　△ 9:00〜13:00　× 定休日<br>
+        受付は最終受付時間の1時間前まで
+      </div>
+      <a href="#" class="line-btn">
+        <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+        </svg>
+        24時間LINE予約
+      </a>
+      <div class="tel-line">お電話でのご予約　<a href="tel:0000000000">000-0000-0000</a></div>
+    </div>
+    <button class="float-toggle" id="floatToggle" aria-label="診察時間・予約を開く">
+      <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="#F5F3EA" stroke-width="1.6"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3.5 2" stroke-linecap="round" />
+      </svg>
+      <span class="label-closed">診察時間<br>予約</span>
+      <span class="label-open">閉じる</span>
+    </button>
+  </div>
+
+  <script>
+    // mobile nav
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+    // dropdown: desktop hover works via CSS; mobile tap toggles
+    const ddWrap = document.getElementById('aboutDropdown');
+    const ddToggle = document.getElementById('ddToggle');
+    ddToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 880) { e.preventDefault(); ddWrap.classList.toggle('open'); }
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+    // fade-up on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+    // hero carousel (auto-scrolling slide track)
+    const heroTrack = document.getElementById('heroTrack');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slide-dots button');
+    let current = 0;
+    function goToSlide(i) {
+      dots[current].classList.remove('active');
+      current = i;
+      heroTrack.style.transform = `translateX(-${current * (100 / slides.length)}%)`;
+      dots[current].classList.add('active');
+    }
+    let carouselTimer = setInterval(() => goToSlide((current + 1) % slides.length), 4800);
+    dots.forEach((d, i) => d.addEventListener('click', () => {
+      clearInterval(carouselTimer);
+      goToSlide(i);
+      carouselTimer = setInterval(() => goToSlide((current + 1) % slides.length), 4800);
+    }));
+
+    // floating widget
+    const floatWidget = document.getElementById('floatWidget');
+    const floatToggle = document.getElementById('floatToggle');
+    floatToggle.addEventListener('click', () => floatWidget.classList.toggle('open'));
+  </script>
+
+</body>
+
+</html>

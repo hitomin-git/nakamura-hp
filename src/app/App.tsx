@@ -164,18 +164,7 @@ function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          {!isLight && (
-            <a
-              href={LINE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/80 border border-white/30 hover:border-white/70 text-sm px-4 py-2 rounded-full transition-colors hover:text-white"
-            >
-              {LINE_ICON}
-              <span>LINE予約</span>
-            </a>
-          )}
-          {isLight && <LineBtnGreen />}
+          <LineBtnGreen />
         </div>
 
         <button
@@ -724,30 +713,26 @@ function FirstVisitSection() {
         <FadeUp delay={100}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             {steps.map((step, i) => (
-              <div key={i} className="relative">
-                {i < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-5 left-full w-full h-px bg-border -translate-y-px z-0" />
-                )}
-                <div className="relative z-10">
-                  <div
-                    className="text-accent text-xs tracking-[0.2em] mb-3"
-                    style={{ fontFamily: "'Zen Kaku Gothic New', sans-serif", fontWeight: 500 }}
-                  >
-                    {step.num}
-                  </div>
-                  <h3
-                    className="text-sm font-medium mb-2"
-                    style={{ fontFamily: "'Shippori Mincho', serif" }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className="text-xs text-foreground/60 leading-relaxed font-light"
-                    style={{ fontFamily: "'Zen Kaku Gothic New', sans-serif" }}
-                  >
-                    {step.body}
-                  </p>
+              <div key={i}>
+                <div
+                  className="text-accent text-xs tracking-[0.2em] mb-3"
+                  style={{ fontFamily: "'Zen Kaku Gothic New', sans-serif", fontWeight: 500 }}
+                >
+                  {step.num}
                 </div>
+                <div className="w-full h-px bg-border mb-4" />
+                <h3
+                  className="text-sm font-medium mb-2"
+                  style={{ fontFamily: "'Shippori Mincho', serif" }}
+                >
+                  {step.title}
+                </h3>
+                <p
+                  className="text-xs text-foreground/60 leading-relaxed font-light"
+                  style={{ fontFamily: "'Zen Kaku Gothic New', sans-serif" }}
+                >
+                  {step.body}
+                </p>
               </div>
             ))}
           </div>

@@ -17,6 +17,9 @@ function figmaAssetResolver() {
 }
 
 export default defineConfig({
+  // GitHub Pages (project page) serves this site from /nakamura-hp/,
+  // so all built asset URLs need that prefix.
+  base: '/nakamura-hp/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if

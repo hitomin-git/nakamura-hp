@@ -7,11 +7,590 @@
   <title>中村鍼灸整体院｜動ける身体は人生の選択肢を増やす</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+
+  <header class="site-header" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="#top" class="site-logo">中村鍼灸整体院</a>
+
+      <nav class="main-nav" id="mainNav">
+        <div class="nav-dropdown" id="navDropdown">
+          <button class="dd-toggle" id="ddToggle">
+            当院について
+            <svg class="dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+          <div class="dd-menu">
+            <a href="#concept">中村鍼灸整体院だからできること</a>
+            <a href="#greeting">ごあいさつ</a>
+          </div>
+        </div>
+        <a href="#pricing">施術料金</a>
+        <a href="#voice">お客様の声</a>
+        <a href="#first-visit">初めての方へ</a>
+        <a href="#footer">アクセス</a>
+      </nav>
+
+      <div class="header-cta">
+        <a href="https://lin.ee/W4OFa8G" target="_blank" rel="noopener" class="line-btn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+          </svg>
+          <span>かんたんLINE予約</span>
+        </a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#concept">中村鍼灸整体院だからできること</a>
+      <a href="#greeting">ごあいさつ</a>
+      <a href="#pricing">施術料金</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#first-visit">初めての方へ</a>
+      <a href="#footer">アクセス</a>
+      <div class="mobile-menu-cta">
+        <a href="https://lin.ee/W4OFa8G" target="_blank" rel="noopener" class="line-btn line-btn-block">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+          </svg>
+          <span>かんたんLINE予約</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="heroSection">
+      <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide is-active">
+          <img src="https://images.unsplash.com/photo-1712232907812-4bd219a99a49?w=1600&h=900&fit=crop&auto=format"
+            alt="静かな和室の空間">
+        </div>
+        <div class="hero-slide">
+          <img src="https://images.unsplash.com/photo-1715388693816-443d278beffb?w=1600&h=900&fit=crop&auto=format"
+            alt="窓から見える緑の森">
+        </div>
+        <div class="hero-slide">
+          <img src="https://images.unsplash.com/photo-1753552502151-93914d36ecf2?w=1600&h=900&fit=crop&auto=format"
+            alt="伝統的な和の室内装飾">
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Nakamura Acupuncture &amp; Seitai</span>
+        <h1 class="hero-title">動ける身体は、<br>人生の<em>選択肢</em>を増やす。</h1>
+        <p class="hero-lead">
+          肩こり、腰痛、不眠、疲れ。<br>
+          頑張り続けるあなたの身体に、<br>
+          鍼灸と整体で本来の力を取り戻す。
+        </p>
+        <a href="#first-visit" class="hero-cta">
+          初めての方へ
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="hero-dots" id="heroDots">
+        <button class="is-active" data-slide="0" aria-label="スライド 1"></button>
+        <button data-slide="1" aria-label="スライド 2"></button>
+        <button data-slide="2" aria-label="スライド 3"></button>
+      </div>
+
+      <div class="hero-scroll">
+        <span>SCROLL</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ================= 当院について ================= -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section-label fade-up">
+          <div class="section-label-text">
+            <span class="section-label-en">About Us</span>
+            <h2 class="section-label-ja">当院について</h2>
+          </div>
+          <div class="section-label-rule"></div>
+        </div>
+
+        <!-- Concept -->
+        <div class="about-block" id="concept">
+          <div class="subsection-label fade-up">
+            <span>01 — Concept</span>
+            <div class="subsection-rule"></div>
+          </div>
+
+          <div class="concept-grid">
+            <div class="fade-up">
+              <h3 class="concept-heading">中村鍼灸整体院<br>だからできること</h3>
+              <div class="concept-photo">
+                <img src="picture/room.webp" alt="院内の様子">
+              </div>
+            </div>
+
+            <div class="fade-up">
+              <p class="concept-lead">
+                その不調は、日々を頑張ってきた証です。中村鍼灸整体院は、鍼灸と整体の技術で身体と丁寧に向き合い、痛みの奥にある原因を見極めながら、本来もつ自然治癒力を引き出す施術をお届けします。初めての方にも安心していただけるよう、まずはお話をじっくり伺うことから始めます。
+              </p>
+              <ul class="concept-points">
+                <li>
+                  <span class="num">01</span>
+                  <div>
+                    <h4>丁寧なカウンセリング</h4>
+                    <p>症状だけでなく、生活習慣やお身体の癖まで伺い、根本原因を一緒に見つけていきます。</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="num">02</span>
+                  <div>
+                    <h4>経験に基づく確かな技術</h4>
+                    <p>鍼灸と整体、双方の知見を組み合わせ、お一人おひとりに合わせた施術を組み立てます。</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="num">03</span>
+                  <div>
+                    <h4>通いやすい立地と時間</h4>
+                    <p>赤坂・溜池山王・六本木一丁目の3駅から、いずれも徒歩5分の立地。お仕事帰りや家事の合間にも立ち寄れます。</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Greeting -->
+        <div class="about-block" id="greeting">
+          <div class="subsection-label fade-up">
+            <span>02 — Greeting</span>
+            <div class="subsection-rule"></div>
+          </div>
+
+          <h3 class="greeting-heading fade-up">ごあいさつ</h3>
+
+          <div class="greeting-grid">
+            <div class="fade-up">
+              <div class="portrait">
+                <img src="picture/nakamura_face.jpg" alt="院長 中村勇斗">
+              </div>
+              <p class="portrait-cap">院長　中村 勇斗</p>
+            </div>
+
+            <div class="greeting-copy fade-up">
+              <h4>院長紹介</h4>
+              <div class="greeting-intro">
+                <p>はじめまして。中村鍼灸整体院 院長の中村です。</p>
+                <p>大阪で鍼灸師としてのキャリアをスタートし、海外での解剖研修や東京・港区での臨床経験を経て、この赤坂の地に開院いたしました。</p>
+                <p>
+                  「とりあえず楽になりたい」ではなく、「なぜこの不調が起きているのか」を正しく知りたい方へ。当院は、その問いに真剣に向き合いたい方のための場所です。完全プライベートな空間で、誰にも急かされることなく、ご自身の身体とじっくり向き合う時間をご提供します。
+                </p>
+                <p>まずはお気軽にご相談ください。「なんとなく」から、より良い一歩を始めましょう。</p>
+              </div>
+
+              <div class="signature-block">
+                <div class="name">院長　中村 勇斗</div>
+                <div class="cred">nakamura yuto</div>
+              </div>
+
+              <h4>経歴</h4>
+              <ul class="career-list">
+                <li>1999年　大阪府生まれ</li>
+                <li>はり師・きゅう師　国家資格取得</li>
+                <li>大阪府内の鍼灸整体院に勤務</li>
+                <li>海外にて解剖学研修に参加</li>
+                <li>東京都港区の美容鍼灸整体院に勤務</li>
+                <li>月1回、札幌にて施術を担当</li>
+                <li>中村鍼灸整体院　開院（2027年予定）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 施術料金 ================= -->
+    <section class="section section-alt" id="pricing">
+      <div class="wrap">
+        <div class="section-label fade-up">
+          <div class="section-label-text">
+            <span class="section-label-en">Price</span>
+            <h2 class="section-label-ja">施術料金</h2>
+          </div>
+          <div class="section-label-rule"></div>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="price-card fade-up">
+            <h3 class="price-card-title">施術料金</h3>
+            <p class="price-card-sub">（90分）</p>
+            <table class="price-table">
+              <thead>
+                <tr>
+                  <th>メニュー</th>
+                  <th class="col-price">料金（税込）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="name">初回施術</td>
+                  <td class="price">¥9,000</td>
+                </tr>
+                <tr>
+                  <td class="name">鍼灸整体</td>
+                  <td class="price">¥18,000</td>
+                </tr>
+                <tr>
+                  <td class="name">鍼灸整体＋美容鍼</td>
+                  <td class="price">¥21,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="deduction fade-up">
+            <h3>【医療費控除】について</h3>
+            <p class="deduction-lead">当院は保健所へ正式に開設届を提出している鍼灸院となります。そのため症状改善を目的とした鍼灸施術に関しては、医療費控除の対象となる場合がございます。</p>
+            <ol class="deduction-list">
+              <li>
+                <span class="num">01</span>
+                <div>
+                  <h5>医療費控除の対象になる可能性がある</h5>
+                  <p>肩こり・腰痛・頭痛・自律神経症状など、治療目的の施術は医療費控除の対象として扱われる場合があります。</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">02</span>
+                <div>
+                  <h5>確定申告時に活用できる</h5>
+                  <p>領収書を保管いただくことで、確定申告時の医療費控除申請にご利用いただけます。</p>
+                </div>
+              </li>
+              <li>
+                <span class="num">03</span>
+                <div>
+                  <h5>実質的なご負担軽減に繋がる場合がある</h5>
+                  <p>医療費控除を活用することで、税負担の軽減に繋がるケースもございます。</p>
+                </div>
+              </li>
+            </ol>
+            <p class="deduction-note">
+              ※ 美容目的の施術は対象外となる場合があります。<br>
+              ※ 詳細は税務署または顧問税理士様へご確認ください。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= お客様の声 ================= -->
+    <section class="section" id="voice">
+      <div class="wrap">
+        <div class="section-label fade-up">
+          <div class="section-label-text">
+            <span class="section-label-en">Customer's Voice</span>
+            <h2 class="section-label-ja">お客様の声</h2>
+          </div>
+          <div class="section-label-rule"></div>
+        </div>
+        <p class="section-lead fade-up">実際に通っていただいているお客様からいただいたお声の一部をご紹介します。</p>
+
+        <div class="voice-row">
+          <div class="voice-card fade-up">
+            <span class="quote-mark">"</span>
+            <p>長年悩んでいた肩こりが、通ううちにずいぶん楽になりました。丁寧な説明で毎回安心して施術を受けられます。</p>
+            <div class="who">40代・女性</div>
+          </div>
+          <div class="voice-card fade-up">
+            <span class="quote-mark">"</span>
+            <p>歩くのもつらかった腰痛が嘘のようです。もっと早く来ればよかったと思っています。</p>
+            <div class="who">60代・男性</div>
+          </div>
+          <div class="voice-card fade-up">
+            <span class="quote-mark">"</span>
+            <p>鍼が初めてで不安でしたが、痛みはほとんどなく、施術後は身体が軽くなりました。</p>
+            <div class="who">30代・女性</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 初めての方へ ================= -->
+    <section class="section section-alt" id="first-visit">
+      <div class="wrap">
+        <div class="section-label fade-up">
+          <div class="section-label-text">
+            <span class="section-label-en">For First-time Visitors</span>
+            <h2 class="section-label-ja">初めての方へ</h2>
+          </div>
+          <div class="section-label-rule"></div>
+        </div>
+        <p class="section-lead fade-up">ご来院からお会計までの流れと、よくいただくご質問をまとめました。</p>
+
+        <div class="flow-row fade-up">
+          <div class="flow-step">
+            <span class="fnum">01</span>
+            <div class="flow-rule"></div>
+            <h3>ご予約</h3>
+            <p>LINEにてご希望の日時をご連絡ください。</p>
+          </div>
+          <div class="flow-step">
+            <span class="fnum">02</span>
+            <div class="flow-rule"></div>
+            <h3>問診・カウンセリング</h3>
+            <p>お身体の状態や生活習慣について、じっくりお話を伺います。</p>
+          </div>
+          <div class="flow-step">
+            <span class="fnum">03</span>
+            <div class="flow-rule"></div>
+            <h3>施術</h3>
+            <p>カウンセリングをもとに、鍼灸・整体を組み合わせて施術いたします。</p>
+          </div>
+          <div class="flow-step">
+            <span class="fnum">04</span>
+            <div class="flow-rule"></div>
+            <h3>アフターケア</h3>
+            <p>今後の通院ペースやセルフケアの方法をご案内し、次回のご予約を承ります。</p>
+          </div>
+        </div>
+
+        <div class="faq fade-up">
+          <h3 class="faq-heading">よくあるご質問</h3>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item">
+              <button class="faq-q">
+                <span><span class="q-tag">Q</span>施術は痛いですか？</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <p class="faq-a">
+                髪の毛ほどの細さの鍼を使用するため、痛みを感じる方は少ないです。ツボに鍼が入ると「ひびき」と呼ばれる独特の鈍い感覚が出ることがありますが、これは鍼がしっかり効いているサインです。</p>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                <span><span class="q-tag">Q</span>どのような服装で伺えばいいですか？</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <p class="faq-a">普段着のままお越しいただいて問題ありません。院内に着替えもご用意しておりますので、動きやすい服装がなくてもご安心ください。</p>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                <span><span class="q-tag">Q</span>施術時間はどれくらいですか？</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <p class="faq-a">コースにより異なりますが、初診の方はカウンセリングを含めて60〜90分ほどお時間をいただいております。</p>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q">
+                <span><span class="q-tag">Q</span>使用する鍼は使い捨てですか？</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <p class="faq-a">当院ではディスポーザブル（使い捨て）の鍼を使用しており、使い回しは一切ございません。感染症等のご心配なくお受けいただけます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="first-visit-cta fade-up">
+          <p>ご不明な点がございましたら、お気軽にLINEよりお問い合わせください。</p>
+          <a href="https://lin.ee/W4OFa8G" target="_blank" rel="noopener" class="line-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+            </svg>
+            <span>LINEで相談・予約する</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">中村鍼灸整体院</div>
+          <p class="footer-eyebrow">Nakamura Acupuncture &amp; Seitai</p>
+
+          <div class="footer-info">
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>〒107-0052　東京都港区赤坂２丁目２１−５　藤和赤坂コープ</span>
+            </div>
+            <div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span>10:00〜21:00（最終受付 19:30）　定休日：不定休</span>
+            </div>
+          </div>
+
+          <table class="footer-hours">
+            <thead>
+              <tr>
+                <th>月</th>
+                <th>火</th>
+                <th>水</th>
+                <th>木</th>
+                <th>金</th>
+                <th>土</th>
+                <th>日祝</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+                <td>○</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="footer-cta">
+            <a href="https://lin.ee/W4OFa8G" target="_blank" rel="noopener" class="line-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+              </svg>
+              <span>かんたんLINE予約</span>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%B5%A4%E5%9D%822%E4%B8%81%E7%9B%AE21-5%20%E8%97%A4%E5%92%8C%E8%B5%A4%E5%9D%82%E3%82%B3%E3%83%BC%E3%83%97"
+              target="_blank" rel="noopener" class="footer-map-link">マップを見る →</a>
+          </div>
+        </div>
+
+        <div class="footer-map">
+          <iframe
+            src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%B5%A4%E5%9D%822%E4%B8%81%E7%9B%AE21-5%20%E8%97%A4%E5%92%8C%E8%B5%A4%E5%9D%82%E3%82%B3%E3%83%BC%E3%83%97&output=embed"
+            width="100%" height="100%" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="中村鍼灸整体院 地図"></iframe>
+        </div>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#top">トップページ</a>
+        <a href="#about">当院について</a>
+        <a href="#pricing">施術料金</a>
+        <a href="#voice">お客様の声</a>
+        <a href="#first-visit">初めての方へ</a>
+      </nav>
+
+      <div class="footer-bottom">
+        <span>© 中村鍼灸整体院</span>
+        <span>はり師・きゅう師 国家資格保有</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= FLOATING 診察時間・予約 WIDGET ================= -->
+  <div class="float-widget" id="floatWidget">
+    <div class="float-panel">
+      <div class="float-panel-badge">
+        <span class="pulse-dot"></span>
+        ただいま受付中
+      </div>
+      <h4>診察時間・予約</h4>
+      <table class="hours-mini">
+        <thead>
+          <tr>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+            <th>日祝</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>○</td>
+            <td>○</td>
+            <td>○</td>
+            <td>○</td>
+            <td>○</td>
+            <td>○</td>
+            <td>○</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="float-hours">10:00〜21:00（最終受付 19:30）<br>定休日：不定休</p>
+      <p class="float-address">
+        〒107-0052　東京都港区赤坂２丁目２１−５　藤和赤坂コープ<br>
+        <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E8%B5%A4%E5%9D%822%E4%B8%81%E7%9B%AE21-5%20%E8%97%A4%E5%92%8C%E8%B5%A4%E5%9D%82%E3%82%B3%E3%83%BC%E3%83%97"
+          target="_blank" rel="noopener" class="map-link">マップを見る →</a>
+      </p>
+      <a href="https://lin.ee/W4OFa8G" target="_blank" rel="noopener" class="line-btn line-btn-block">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2C6.48 2 2 5.86 2 10.6c0 4.24 3.53 7.79 8.3 8.48.32.07.76.21.87.49.1.25.06.64.03.89l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.2 13.99 22 12.38 22 10.6 22 5.86 17.52 2 12 2z" />
+        </svg>
+        <span>LINEで予約する</span>
+      </a>
+    </div>
+    <button class="float-toggle" id="floatToggle" aria-label="診察時間・予約">
+      <svg class="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 
 </html>

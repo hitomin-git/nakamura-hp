@@ -937,10 +937,12 @@ h1, h2, h3, h4, h5 {
 .voice-viewport {
   flex: 1;
   overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%);
 }
 
 .voice-track {
-  --voice-card-width: 82%;
+  --voice-card-width: 64%;
   display: flex;
   gap: 1rem;
   transition: transform .5s ease;
@@ -973,7 +975,7 @@ h1, h2, h3, h4, h5 {
   }
 
   .voice-track {
-    --voice-card-width: 88%;
+    --voice-card-width: 76%;
   }
 
   .voice-card {

@@ -60,6 +60,24 @@ heroDots.forEach((dot, i) => {
 
 startHeroTimer();
 
+// ---------- voice carousel ----------
+const voiceTrack = document.getElementById('voiceTrack');
+const voiceCards = document.querySelectorAll('.voice-card');
+const voiceDots = document.querySelectorAll('#voiceDots button');
+const voicePrev = document.getElementById('voicePrev');
+const voiceNext = document.getElementById('voiceNext');
+let voiceCurrent = 0;
+
+function goToVoiceSlide(i) {
+  voiceCurrent = (i + voiceCards.length) % voiceCards.length;
+  voiceTrack.style.transform = `translateX(-${voiceCurrent * 100}%)`;
+  voiceDots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === voiceCurrent));
+}
+
+voicePrev.addEventListener('click', () => goToVoiceSlide(voiceCurrent - 1));
+voiceNext.addEventListener('click', () => goToVoiceSlide(voiceCurrent + 1));
+voiceDots.forEach((dot, i) => dot.addEventListener('click', () => goToVoiceSlide(i)));
+
 // ---------- FAQ accordion (exclusive: opening one closes the others) ----------
 const faqItems = document.querySelectorAll('.faq-item');
 faqItems.forEach((item) => {

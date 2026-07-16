@@ -317,35 +317,59 @@
         </div>
         <p class="section-lead fade-up">実際に通っていただいているお客様からいただいたお声の一部をご紹介します。</p>
 
-        <div class="voice-row">
-          <div class="voice-card fade-up">
-            <span class="quote-mark">"</span>
-            <p>
-              妻の紹介で訪れ結婚式前の為に姿勢改善と美容鍼また、日頃の疲れである肩こり改善の施術を受けました。（びっくりするぐらい顔が小さくなりました。笑）<br><br>
-              施術前のカウンセリングが丁寧で、分かりやすく説明していただき安心して施術を任せることができました！<br><br>
-              中村さんはとても信頼できる方で接客も丁寧でした！<br><br>
-              施術後は体調が良く、体の変化を実感できました！院内も清潔で落ち着いた雰囲気でリラックスできました！<br><br>
-              結婚式が終わっても継続して通って日頃のケアとしてもお世話になりたいです！
-            </p>
-            <div class="who">★★★★★</div>
+        <div class="voice-carousel fade-up">
+          <button class="voice-nav voice-nav-prev" id="voicePrev" aria-label="前の声">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+
+          <div class="voice-viewport">
+            <div class="voice-track" id="voiceTrack">
+              <div class="voice-card">
+                <span class="quote-mark">"</span>
+                <p>
+                  妻の紹介で訪れ結婚式前の為に姿勢改善と美容鍼また、日頃の疲れである肩こり改善の施術を受けました。（びっくりするぐらい顔が小さくなりました。笑）<br><br>
+                  施術前のカウンセリングが丁寧で、分かりやすく説明していただき安心して施術を任せることができました！<br><br>
+                  中村さんはとても信頼できる方で接客も丁寧でした！<br><br>
+                  施術後は体調が良く、体の変化を実感できました！院内も清潔で落ち着いた雰囲気でリラックスできました！<br><br>
+                  結婚式が終わっても継続して通って日頃のケアとしてもお世話になりたいです！
+                </p>
+                <div class="who">★★★★★</div>
+              </div>
+              <div class="voice-card">
+                <span class="quote-mark">"</span>
+                <p>
+                  施術後すぐに体の変化を感じ、満足感が高まりました。施術前のカウンセリングも丁寧で、安心して任せられました！<br><br>
+                  親切で、信頼できる環境だと感じ、院内の清潔感も素晴らしく、とても快適に過ごせました。<br><br>
+                  ぜひ継続して通いたいと思いますし、友人にも紹介したいと思っています。<br><br>
+                  体の不調を抱えている方には、ぜひ一度訪れてみてほしいと思います！
+                </p>
+                <div class="who">★★★★★</div>
+              </div>
+              <div class="voice-card">
+                <span class="quote-mark">"</span>
+                <p>
+                  施術全体に対する満足度は非常に高く、身体の変化や効果にも一定の効果が感じられました。初めての施術でも、施術前のカウンセリングや症状説明、施術方針の説明が非常に丁寧で分かりやすく、安心して任せられました。施術者およびスタッフの対応も非常に丁寧で、安心感がありました。院内の清潔感や設備も素晴らしく、快適に過ごせました。この経験から、ぜひ継続して通いたいと思いましたし、家族や友人にも紹介したいと感じました。
+                </p>
+                <div class="who">★★★★★</div>
+              </div>
+            </div>
           </div>
-          <div class="voice-card fade-up">
-            <span class="quote-mark">"</span>
-            <p>
-              施術後すぐに体の変化を感じ、満足感が高まりました。施術前のカウンセリングも丁寧で、安心して任せられました！<br><br>
-              親切で、信頼できる環境だと感じ、院内の清潔感も素晴らしく、とても快適に過ごせました。<br><br>
-              ぜひ継続して通いたいと思いますし、友人にも紹介したいと思っています。<br><br>
-              体の不調を抱えている方には、ぜひ一度訪れてみてほしいと思います！
-            </p>
-            <div class="who">★★★★★</div>
-          </div>
-          <div class="voice-card fade-up">
-            <span class="quote-mark">"</span>
-            <p>
-              施術全体に対する満足度は非常に高く、身体の変化や効果にも一定の効果が感じられました。初めての施術でも、施術前のカウンセリングや症状説明、施術方針の説明が非常に丁寧で分かりやすく、安心して任せられました。施術者およびスタッフの対応も非常に丁寧で、安心感がありました。院内の清潔感や設備も素晴らしく、快適に過ごせました。この経験から、ぜひ継続して通いたいと思いましたし、家族や友人にも紹介したいと感じました。
-            </p>
-            <div class="who">★★★★★</div>
-          </div>
+
+          <button class="voice-nav voice-nav-next" id="voiceNext" aria-label="次の声">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="voice-dots" id="voiceDots">
+          <button class="is-active" data-index="0" aria-label="1件目"></button>
+          <button data-index="1" aria-label="2件目"></button>
+          <button data-index="2" aria-label="3件目"></button>
         </div>
       </div>
     </section>

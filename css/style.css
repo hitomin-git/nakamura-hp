@@ -733,10 +733,6 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 1.25rem;
 }
 
-.greeting-copy h4 + ul {
-  margin-top: -0.5rem;
-}
-
 .greeting-copy h4:not(:first-child) {
   font-size: 0.875rem;
   margin-bottom: 1rem;
@@ -769,26 +765,11 @@ h1, h2, h3, h4, h5 {
   margin-top: 0.125rem;
 }
 
-.career-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.profile-text {
   font-size: 0.875rem;
+  line-height: 2;
   color: rgba(28, 27, 23, 0.65);
   font-weight: 300;
-}
-
-.career-list li {
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
-}
-
-.career-list li::before {
-  content: "●";
-  color: var(--accent);
-  font-size: 6px;
-  flex-shrink: 0;
 }
 
 /* ================= PRICING ================= */
@@ -960,8 +941,8 @@ h1, h2, h3, h4, h5 {
 
 .voice-card .who {
   font-size: 0.75rem;
-  color: var(--muted-fg);
-  letter-spacing: 0.05em;
+  color: var(--accent);
+  letter-spacing: 0.1em;
   padding-top: 0.5rem;
   border-top: 1px solid var(--border);
 }
@@ -1182,23 +1163,6 @@ footer {
   .footer-cta {
     flex-direction: row;
   }
-}
-
-.footer-map-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: rgba(244, 241, 234, 0.7);
-  border: 1px solid rgba(244, 241, 234, 0.2);
-  font-size: 0.875rem;
-  padding: 0.625rem 1.25rem;
-  border-radius: 999px;
-  transition: border-color .2s ease, color .2s ease;
-}
-
-.footer-map-link:hover {
-  border-color: rgba(244, 241, 234, 0.5);
-  color: var(--primary-fg);
 }
 
 .footer-map {

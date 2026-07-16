@@ -60,23 +60,61 @@ heroDots.forEach((dot, i) => {
 
 startHeroTimer();
 
-// ---------- voice carousel ----------
+// ---------- voice carousel (infinite loop via cloned end slides) ----------
 const voiceTrack = document.getElementById('voiceTrack');
-const voiceCards = document.querySelectorAll('.voice-card');
 const voiceDots = document.querySelectorAll('#voiceDots button');
 const voicePrev = document.getElementById('voicePrev');
 const voiceNext = document.getElementById('voiceNext');
-let voiceCurrent = 0;
 
-function goToVoiceSlide(i) {
-  voiceCurrent = (i + voiceCards.length) % voiceCards.length;
-  voiceTrack.style.transform = `translateX(-${voiceCurrent * 100}%)`;
-  voiceDots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === voiceCurrent));
+const voiceRealSlides = Array.from(voiceTrack.children);
+const voiceTotal = voiceRealSlides.length;
+
+const voiceFirstClone = voiceRealSlides[0].cloneNode(true);
+const voiceLastClone = voiceRealSlides[voiceTotal - 1].cloneNode(true);
+voiceFirstClone.setAttribute('aria-hidden', 'true');
+voiceLastClone.setAttribute('aria-hidden', 'true');
+voiceTrack.appendChild(voiceFirstClone);
+voiceTrack.insertBefore(voiceLastClone, voiceRealSlides[0]);
+
+const voiceSlideCount = voiceTotal + 2; // + 2 clones
+let voiceRealIndex = 0;
+let voiceTrackPos = 1; // 1..voiceTotal are the real slides; 0 and voiceSlideCount-1 are clones
+
+function renderVoiceTrack(withTransition) {
+  voiceTrack.style.transition = withTransition ? 'transform .5s ease' : 'none';
+  voiceTrack.style.transform =
+    `translateX(calc(-${voiceTrackPos} * (var(--voice-card-width) + 1rem) + (100% - var(--voice-card-width)) / 2))`;
+  voiceDots.forEach((dot, idx) => dot.classList.toggle('is-active', idx === voiceRealIndex));
 }
 
-voicePrev.addEventListener('click', () => goToVoiceSlide(voiceCurrent - 1));
-voiceNext.addEventListener('click', () => goToVoiceSlide(voiceCurrent + 1));
-voiceDots.forEach((dot, i) => dot.addEventListener('click', () => goToVoiceSlide(i)));
+function goToVoiceSlide(step) {
+  voiceRealIndex = (voiceRealIndex + step + voiceTotal) % voiceTotal;
+  voiceTrackPos += step;
+  renderVoiceTrack(true);
+}
+
+function jumpToVoiceSlide(index) {
+  voiceRealIndex = index;
+  voiceTrackPos = index + 1;
+  renderVoiceTrack(true);
+}
+
+// after sliding onto a clone, snap (without animating) back to the matching real slide
+voiceTrack.addEventListener('transitionend', () => {
+  if (voiceTrackPos === voiceSlideCount - 1) {
+    voiceTrackPos = 1;
+    renderVoiceTrack(false);
+  } else if (voiceTrackPos === 0) {
+    voiceTrackPos = voiceTotal;
+    renderVoiceTrack(false);
+  }
+});
+
+voicePrev.addEventListener('click', () => goToVoiceSlide(-1));
+voiceNext.addEventListener('click', () => goToVoiceSlide(1));
+voiceDots.forEach((dot, i) => dot.addEventListener('click', () => jumpToVoiceSlide(i)));
+
+renderVoiceTrack(false);
 
 // ---------- FAQ accordion (exclusive: opening one closes the others) ----------
 const faqItems = document.querySelectorAll('.faq-item');

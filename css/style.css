@@ -940,12 +940,14 @@ h1, h2, h3, h4, h5 {
 }
 
 .voice-track {
+  --voice-card-width: 82%;
   display: flex;
+  gap: 1rem;
   transition: transform .5s ease;
 }
 
 .voice-card {
-  flex: 0 0 100%;
+  flex: 0 0 var(--voice-card-width);
   box-sizing: border-box;
   background: var(--bg-alt);
   padding: 2.5rem;
@@ -970,15 +972,13 @@ h1, h2, h3, h4, h5 {
     height: 2.25rem;
   }
 
+  .voice-track {
+    --voice-card-width: 88%;
+  }
+
   .voice-card {
     padding: 2rem 1.25rem;
   }
-}
-
-.voice-card .quote-mark {
-  color: var(--accent);
-  font-size: 2.25rem;
-  line-height: 1;
 }
 
 .voice-card p {

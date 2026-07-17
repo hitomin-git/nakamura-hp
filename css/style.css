@@ -117,6 +117,20 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
 }
 
+/* ---------- Instagram icon link ---------- */
+.instagram-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.instagram-icon-link img {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
 /* ================= HEADER ================= */
 .site-header {
   position: fixed;
@@ -370,6 +384,15 @@ h1, h2, h3, h4, h5 {
   padding-top: 1.25rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 380px) {
+  .mobile-menu-cta .instagram-icon-link img {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 /* ================= HERO ================= */
@@ -820,6 +843,32 @@ h1, h2, h3, h4, h5 {
   line-height: 2;
   color: rgba(28, 27, 23, 0.65);
   font-weight: 300;
+}
+
+.license-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.license-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: rgba(28, 27, 23, 0.65);
+}
+
+.license-list .license-label {
+  font-weight: 500;
+  color: rgba(28, 27, 23, 0.85);
+}
+
+.license-list .license-no {
+  letter-spacing: 0.03em;
 }
 
 /* ================= PRICING ================= */
@@ -1316,15 +1365,9 @@ footer {
 
 .footer-cta {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   gap: 0.75rem;
-}
-
-@media (min-width: 640px) {
-  .footer-cta {
-    flex-direction: row;
-  }
 }
 
 .footer-map {
@@ -1476,6 +1519,21 @@ footer {
 .float-address .map-link:hover,
 .map-link:hover {
   text-decoration: underline;
+}
+
+.float-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.float-cta-row .line-btn-block {
+  flex: 1;
+}
+
+.float-cta-row .instagram-icon-link img {
+  width: 28px;
+  height: 28px;
 }
 
 .float-toggle {

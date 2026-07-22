@@ -10,16 +10,16 @@ function updateHeaderScrollState() {
 window.addEventListener('scroll', updateHeaderScrollState, { passive: true });
 updateHeaderScrollState();
 
-// ---------- desktop dropdown ("当院について") ----------
+/*--------- desktop dropdown ("当院について") ----------
 const navDropdown = document.getElementById('navDropdown');
 const ddToggle = document.getElementById('ddToggle');
 
 navDropdown.addEventListener('mouseenter', () => navDropdown.classList.add('is-open'));
 navDropdown.addEventListener('mouseleave', () => navDropdown.classList.remove('is-open'));
-ddToggle.addEventListener('click', () => navDropdown.classList.toggle('is-open'));
+navDropdown.addEventListener('click', () => navDropdown.classList.toggle('is-open'));
 navDropdown.querySelectorAll('a').forEach((a) =>
   a.addEventListener('click', () => navDropdown.classList.remove('is-open'))
-);
+);*/
 
 // ---------- mobile menu ----------
 const menuToggle = document.getElementById('menuToggle');

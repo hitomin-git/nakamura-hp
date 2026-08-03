@@ -1275,6 +1275,25 @@ h5 {
   font-weight: 300;
 }
 
+.flow-photo {
+  aspect-ratio: 4 / 3;
+  background: var(--muted);
+  overflow: hidden;
+  border-radius: 2px;
+  margin-top: 1rem;
+}
+
+.flow-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+
+.flow-photo:hover img {
+  transform: scale(1.05);
+}
+
 .faq-heading {
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
